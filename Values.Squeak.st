@@ -1,13 +1,13 @@
-'From VisualWorks®, 8.3 of 28. Juli 2017 on 27. Februar 2022 at 07:47:03'!
+'From VisualWorks®, 8.3 of 28. Juli 2017 on 27. Februar 2022 at 09:16:21'!
 
-"Created 27. Februar 2022 um 07:47:03 by Squeak Transform(1.4.0.2,chaider)"
-PackageManifest subclass: #ManifestValues
+"Created 27. Februar 2022 um 09:16:21 by Squeak Transform(1.4.0.2,chaider)"
+Object subclass: #AboutValues
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Values'!
 
-!ManifestValues commentStamp: 'chaider 27/5/21 17:52' prior: 0!
+!AboutValues commentStamp: 'chaider 27/5/21 17:52' prior: 0!
 Values are simple immutable literal objects.
 
 Runtime support for Values.
@@ -19,7 +19,7 @@ Defines the root class Value and provides
 
 Specifies the responsibilities of subclasses to define the #localSpecification!
 
-!ManifestValues methodsFor: 'Package properties' stamp: 'chaider 27/5/21 17:52'!
+!AboutValues methodsFor: 'Package properties' stamp: 'chaider 27/5/21 17:52'!
 
 notice
 	^'The MIT License
@@ -338,8 +338,8 @@ emitSeparator
 !DictionaryPrintargument class methodsFor: 'specification' stamp: 'chaider 27/5/21 17:52'!
 
 localSpecification
-	<constant: #name class: #{Printvalue}>
-	<constant: #value class: #{Printvalue}>! !
+	<constant: #name class: #(#Printvalue)>
+	<constant: #value class: #(#Printvalue)>! !
 
 !DictionaryPrintvalue class methodsFor: 'instance creation' stamp: 'chaider 27/5/21 17:52'!
 
@@ -361,7 +361,7 @@ isOrdered: isOrderedBoolean
 
 localSpecification
 	<sequence: #arguments>
-	<optional: #isOrdered class: #{Boolean} default: 'false'>! !
+	<optional: #isOrdered class: #(#Boolean) default: 'false'>! !
 
 !DictionaryPrintvalue methodsFor: 'accessing' stamp: 'chaider 27/5/21 17:52'!
 
@@ -568,7 +568,7 @@ string: stringString
 !LiteralPrintvalue class methodsFor: 'specification' stamp: 'chaider 27/5/21 17:52'!
 
 localSpecification
-	<constant: #string class: #{String}>! !
+	<constant: #string class: #(#String)>! !
 
 !LiteralPrintvalue methodsFor: 'accessing' stamp: 'chaider 27/5/21 17:52'!
 
@@ -613,8 +613,8 @@ name: nameString value: valuePrintvalue
 !Printargument class methodsFor: 'specification' stamp: 'chaider 27/5/21 17:52'!
 
 localSpecification
-	<constant: #name class: #{String}>
-	<constant: #value class: #{Printvalue}>! !
+	<constant: #name class: #(#String)>
+	<constant: #value class: #(#Printvalue)>! !
 
 !Printargument methodsFor: 'accessing' stamp: 'chaider 27/5/21 17:52'!
 
@@ -1094,7 +1094,7 @@ classname: classnameString
 !ValuePrintvalue class methodsFor: 'specification' stamp: 'chaider 27/5/21 17:52'!
 
 localSpecification
-	<constant: #classname class: #{String}>
+	<constant: #classname class: #(#String)>
 	<sequence: #arguments>! !
 
 !ValuePrintvalue methodsFor: 'accessing' stamp: 'chaider 27/5/21 17:52'!
