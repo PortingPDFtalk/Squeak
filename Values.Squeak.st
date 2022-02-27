@@ -1,6 +1,6 @@
-'From VisualWorks®, 8.3 of 28. Juli 2017 on 27. Februar 2022 at 09:16:21'!
+'From VisualWorks®, 8.3 of 28. Juli 2017 on 27. Februar 2022 at 09:49:58'!
 
-"Created 27. Februar 2022 um 09:16:21 by Squeak Transform(1.4.0.2,chaider)"
+"Created 27. Februar 2022 um 09:49:58 by Squeak Transform(1.4.0.2,chaider)"
 Object subclass: #AboutValues
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -50,7 +50,20 @@ parcelName
 storeVersion
 	^'3.0.0.2'!
 
- !Object
+ !
+"VisualWorks stub classes"
+
+Color
+	subclass: #ColorValue
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Values'!
+
+ColorValue comment: 'VisualWorks class'
+!
+
+Object
 	subclass: #Value
 	instanceVariableNames: ''
 	classVariableNames: 'NamedValuesRegistry'
@@ -1144,31 +1157,6 @@ isLine
 	^self arguments size < 5 and: [
 	self arguments allSatisfy: [:arg | arg isSimple]]! !
 
-!Class methodsFor: '*Values-accessing' stamp: 'chaider 27/5/21 17:52'!
-
-nameRelativeTo: targetClass
-	"<String>"
-	"self nameRelativeTo: Object"
-
-	| ref |
-	(targetClass isInScope: self) ifTrue: [
-		^self name asString].
-	ref := self fullyQualifiedReference.
-	ref environmentName ifNil: [ref := self fullyQualifiedReferenceFrom: Root].
-	^ref asString! !
-
-!Class methodsFor: '*Values-testing' stamp: 'chaider 27/5/21 17:52'!
-
-isInScope: aClass
-	"<Boolean>
-	true if aClass is visible by the receiver - aClass can be used in the source without namespace qualifier.
-	false when aClass cannot be seen by the receiver - use the fullName"
-
-	| variableDefinition |
-	variableDefinition := (NameScope forClass: self) variableAt: aClass name from: nil.
-	^variableDefinition notNil and: [
-	variableDefinition binding value == aClass]! !
-
 !ColorValue class methodsFor: '*Values-instance creation' stamp: 'chaider 27/5/21 17:52'!
 
 fromByte: anInteger
@@ -1234,6 +1222,25 @@ isEmpty
 	^self scaledRed isNil and: [
 	self scaledGreen isNil and: [
 	self scaledBlue isNil]]! !
+
+!Class methodsFor: '*Values-accessing' stamp: 'chaider 27/5/21 17:52'!
+
+nameRelativeTo: targetClass
+	"<String>"
+	"self nameRelativeTo: Object"
+	"there are no namespaces in Squeak"
+
+	^self name asString! !
+
+!Class methodsFor: '*Values-testing' stamp: 'chaider 27/5/21 17:52'!
+
+isInScope: aClass
+	"<Boolean>
+	true if aClass is visible by the receiver - aClass can be used in the source without namespace qualifier.
+	false when aClass cannot be seen by the receiver - use the fullName"
+	"All classes are globally visible in Squeak"
+
+	^true! !
 
 !Date class methodsFor: '*Values-instance creation' stamp: 'chaider 27/5/21 17:52'!
 
