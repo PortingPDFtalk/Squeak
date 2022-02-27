@@ -1,6 +1,6 @@
-'From VisualWorks®, 8.3 of 28. Juli 2017 on 27. Februar 2022 at 09:49:58'!
+'From VisualWorks®, 8.3 of 28. Juli 2017 on 27. Februar 2022 at 12:06:22'!
 
-"Created 27. Februar 2022 um 09:49:58 by Squeak Transform(1.4.0.2,chaider)"
+"Created 27. Februar 2022 um 12:06:22 by Squeak Transform(1.4.0.2,chaider)"
 Object subclass: #AboutValues
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -1303,12 +1303,6 @@ printvalueWith: printer
 		nextPutAll: self asNanoseconds printString;
 		nextPut: $).
 	^LiteralPrintvalue string: wst contents! !
-
-!GeneralBindingReference methodsFor: '*Values-testing' stamp: 'chaider 27/5/21 17:52'!
-
-isEqualValue: aQualifiedName
-	^self class == aQualifiedName class and: [
-	path = aQualifiedName path]! !
 
 !Object class methodsFor: '*Values-named values' stamp: 'chaider 27/5/21 17:52'!
 
