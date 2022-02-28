@@ -1,5 +1,5 @@
 # SqueakValues
-FileOut of the **Values** project for **Squeak**.
+FileOut of the **Values** project for **Squeak** (see [Squeak porting page](https://wiki.pdftalk.de/doku.php?id=squeakport) for details).
 
 The Smalltalk files (.Squeak.st) are to be filed-in into a [Squeak 6.0alpha](https://squeak.org/downloads/) image.
 
