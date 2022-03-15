@@ -4,7 +4,7 @@ SmalltalkCISpec {
   #postLoading : [
   	'Values.Squeak.st',
   	'ValuesTesting.Squeak.st'
-  ]
+  ],
   #testing : {
     #categories : [ 'Values*' ]
   }
