@@ -18,9 +18,9 @@ jobs:
         smalltalk:
           - Squeak64-Trunk
         os:
-          - { family: ubuntu, version: ubuntu-18.04 }
+          # - { family: ubuntu, version: ubuntu-18.04 }
           - { family: windows, version: windows-2019 }
-          - { family: macos, version: macos-10.15 }
+          # - { family: macos, version: macos-10.15 }
     runs-on: ${{ matrix.os.version }}
     env:
       CONFIG_SMALLTALK: ${{ matrix.smalltalk }}
