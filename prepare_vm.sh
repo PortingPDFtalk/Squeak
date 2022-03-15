@@ -47,3 +47,14 @@ if is_cygwin_build || is_mingw64_build; then
 fi
 
 echo "VM_FILEPATH=${vm_path}" >> $GITHUB_ENV
+
+
+# Use custom image to speed up the tests
+LATEST_IMAGE="http://files.squeak.org/trunk/Squeak6.0alpha-21461-64bit/Squeak6.0alpha-21461-64bit.zip"
+
+download_file "${LATEST_IMAGE}" "${SMALLTALK_CI_CACHE}/image.zip"
+extract_file "${SMALLTALK_CI_CACHE}/image.zip" "${SMALLTALK_CI_BUILD}"
+cp "${SMALLTALK_CI_BUILD}/*.image" "${SMALLTALK_CI_BUILD}/latest.image"
+cp "${SMALLTALK_CI_BUILD}/*.changes" "${SMALLTALK_CI_BUILD}/latest.changes"
+
+echo "IMAGE_FILEPATH=${SMALLTALK_CI_BUILD}/latest.image" >> $GITHUB_ENV
