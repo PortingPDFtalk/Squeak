@@ -42,7 +42,7 @@ jobs:
         continue-on-error: false
         shell: bash
         # run: smalltalkci --smalltalk ${{ matrix.smalltalk }} --vm ${{ env.VM_FILEPATH }} ValuesTesting.Squeak.ston
-        run: smalltalkci --image ${{ end.IMAGE_FILEPATH }} --vm ${{ env.VM_FILEPATH }} ValuesTesting.Squeak.ston
+        run: smalltalkci --image ${{ env.IMAGE_FILEPATH }} --vm ${{ env.VM_FILEPATH }} ValuesTesting.Squeak.ston
         timeout-minutes: 5
 
       - name: Upload Artifacts
