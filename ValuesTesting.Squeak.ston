@@ -1,0 +1,11 @@
+SmalltalkCISpec {
+  #name : 'SqueakValues',
+  #loading : [],
+  #postLoading : [
+  	'Values.Squeak.st',
+  	'ValuesTesting.Squeak.st'
+  ]
+  #testing : {
+    #categories : [ 'Values*' ]
+  }
+}
