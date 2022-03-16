@@ -2,8 +2,8 @@ SmalltalkCISpec {
   #name : 'SqueakValues',
   #loading : [],
   #postLoading : [
-  	'Values.Squeak.st',
-  	'ValuesTesting.Squeak.st'
+  	'Values.Squeak60.st',
+  	'ValuesTesting.Squeak60.st'
   ],
   #testing : {
     #categories : [ 'Values*' ]
