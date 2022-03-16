@@ -1,0 +1,73 @@
+name: ValuesTesting.Squeak
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.st' # Run whenever an *.st file changes, even nested ones
+  # schedule:
+  #   - cron: '0 0 * * *' # Test once a day
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        smalltalk:
+          - Squeak64-Trunk
+        os:
+          # - { family: ubuntu, version: ubuntu-18.04 }
+          - { family: windows, version: windows-2019 }
+          # - { family: macos, version: macos-10.15 }
+    runs-on: ${{ matrix.os.version }}
+    env:
+      CONFIG_SMALLTALK: ${{ matrix.smalltalk }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up SmalltalkCI
+        # uses: hpi-swa/setup-smalltalkCI@v1
+        uses: marceltaeumel/setup-smalltalkCI@marceltaeumel/install-path
+        id: smalltalkci
+        with:
+          smalltalk-image: ${{ matrix.smalltalk }}
+          smalltalkCI-workspace: ${{ github.workspace }}
+      - name: Download Latest OpenSmalltalk VM
+        shell: bash
+        run: ./prepare_vm.sh
+
+      - name: File-in and Run Tests
+        continue-on-error: true # upload image and results for inspection
+        shell: bash
+        run: smalltalkci --smalltalk ${{ matrix.smalltalk }} --image ${{ env.IMAGE_FILEPATH }} --vm ${{ env.VM_FILEPATH }} ValuesTesting.Squeak.ston
+        timeout-minutes: 5
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os.family }}
+          path: |
+            .smalltalkCI/_builds/*.sources
+            .smalltalkCI/_builds/*.image
+            .smalltalkCI/_builds/*.changes
+            !.smalltalkCI/_builds/.*
+          # ${{ env.SMALLTALK_CI_BUILD }}/* absolute path does not work on Windows
+
+      - run: mv .smalltalkCI/_builds/SqueakValues.xml .smalltalkCI/_builds/${{ matrix.os.family }}.xml
+        shell: bash
+
+      - name: Update XML log in latest-test-results
+        uses: ncipollo/release-action@v1.8.8
+        with:
+          prerelease: true
+          allowUpdates: true
+          replacesArtifacts: true
+          artifacts: .smalltalkCI/_builds/${{ matrix.os.family }}.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: 'latest-test-builds'
+
+
+      # - name: Setup tmate debugging session
+      #   uses: mxschmitt/action-tmate@v3
