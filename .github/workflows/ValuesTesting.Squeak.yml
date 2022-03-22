@@ -32,8 +32,8 @@ jobs:
         uses: hpi-swa/setup-smalltalkCI@v1
         # uses: marceltaeumel/setup-smalltalkCI@marceltaeumel/install-path
         # id: smalltalkci
-        # with:
-        #   smalltalk-image: ${{ matrix.smalltalk }}
+        with:
+          smalltalk-image: ${{ matrix.smalltalk.stci }}
         #   smalltalkCI-workspace: ${{ github.workspace }}
       # - name: Download Latest OpenSmalltalk VM
       #   shell: bash
