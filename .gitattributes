@@ -1,0 +1,3 @@
+*.st linguist-language=Smalltalk
+*.ston linguist-documentation
+*.sh linguist-documentation
