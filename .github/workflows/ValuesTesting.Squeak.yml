@@ -60,7 +60,13 @@ jobs:
       - run: pwd
         shell: bash
 
+      - run: whoami
+        shell: bash
+
       - run: ls -al
+        shell: bash
+
+      - run: set
         shell: bash
 
       - run: mv .smalltalkCI/_builds/SqueakValues.xml .smalltalkCI/_builds/${{ matrix.os.family }}.xml
