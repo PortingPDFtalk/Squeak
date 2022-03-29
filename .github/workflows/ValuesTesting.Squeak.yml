@@ -57,18 +57,18 @@ jobs:
       #       !.smalltalkCI/_builds/.*
           # ${{ env.SMALLTALK_CI_BUILD }}/* absolute path does not work on Windows
 
-      # - run: mv .smalltalkCI/_builds/SqueakValues.xml .smalltalkCI/_builds/${{ matrix.os.family }}.xml
-      #   shell: bash
+      - run: mv .smalltalkCI/_builds/SqueakValues.xml .smalltalkCI/_builds/${{ matrix.os.family }}.xml
+        shell: bash
 
-      # - name: Update XML log in latest-test-results
-      #   uses: ncipollo/release-action@v1.8.8
-      #   with:
-      #     prerelease: true
-      #     allowUpdates: true
-      #     replacesArtifacts: true
-      #     artifacts: .smalltalkCI/_builds/${{ matrix.os.family }}.xml
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     tag: 'latest-test-builds'
+      - name: Update XML log in latest-test-results
+        uses: ncipollo/release-action@v1.8.8
+        with:
+          prerelease: true
+          allowUpdates: true
+          replacesArtifacts: true
+          artifacts: .smalltalkCI/_builds/${{ matrix.os.family }}.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: 'latest-test-builds'
 
 
       # - name: Setup tmate debugging session
