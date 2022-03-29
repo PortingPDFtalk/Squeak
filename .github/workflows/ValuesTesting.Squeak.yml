@@ -63,13 +63,10 @@ jobs:
       - run: whoami
         shell: bash
 
-      - run: ls -al
+      - run: ls -al ~/.smalltalkCI/_builds
         shell: bash
 
-      - run: set
-        shell: bash
-
-      - run: mv .smalltalkCI/_builds/SqueakValues.xml .smalltalkCI/_builds/${{ matrix.os.family }}.xml
+      - run: mv ~/.smalltalkCI/_builds/SqueakValues.xml ~/.smalltalkCI/_builds/${{ matrix.os.family }}.xml
         shell: bash
 
       - name: Update XML log in latest-test-results
@@ -78,7 +75,7 @@ jobs:
           prerelease: true
           allowUpdates: true
           replacesArtifacts: true
-          artifacts: .smalltalkCI/_builds/${{ matrix.os.family }}.xml
+          artifacts: ~/.smalltalkCI/_builds/${{ matrix.os.family }}.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 'latest-test-builds'
 
