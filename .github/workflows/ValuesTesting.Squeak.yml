@@ -57,7 +57,10 @@ jobs:
       #       !.smalltalkCI/_builds/.*
           # ${{ env.SMALLTALK_CI_BUILD }}/* absolute path does not work on Windows
 
-      - run: ls -al .smalltalkCI/_builds
+      - run: pwd
+        shell: bash
+
+      - run: ls -al
         shell: bash
 
       - run: mv .smalltalkCI/_builds/SqueakValues.xml .smalltalkCI/_builds/${{ matrix.os.family }}.xml
