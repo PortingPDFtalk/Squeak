@@ -1,4 +1,7 @@
 # SqueakValues
+
+[![ValuesTesting](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/ValuesTesting.Squeak.yml/badge.svg)](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/ValuesTesting.Squeak.yml) (Squeak 5.3 and Squeak 6.0alpha)
+
 FileOut of the **Values** project for **Squeak** (see [Squeak porting page](https://wiki.pdftalk.de/doku.php?id=squeakport) for details).
 
 The Smalltalk files (*.squeak53.st and *.squeak60.st) are to be filed-in into a [Squeak 5.3](https://squeak.org/downloads/) or [Squeak 6.0alpha](https://squeak.org/downloads/) image respectively.
