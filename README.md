@@ -1,4 +1,4 @@
-# Squeak PDFtalk
+# PDFtalk for Squeak
 
 [![ValuesTesting](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/ValuesTesting.Squeak.yml/badge.svg)](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/ValuesTesting.Squeak.yml) (Squeak 5.3 and Squeak 6.0beta)
 
