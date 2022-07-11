@@ -1,6 +1,8 @@
 # PDFtalk for Squeak
 
-[![ValuesTesting](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/ValuesTesting.Squeak.yml/badge.svg)](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/ValuesTesting.Squeak.yml) (Squeak 5.3 and Squeak 6.0beta)
+[![ValuesTesting](https://github.com/PortingPDFtalk/SqueakPDFtalk/actions/workflows/ValuesTesting.Squeak.yml/badge.svg)](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/ValuesTesting.Squeak.yml) (Squeak 5.3 and Squeak 6.0)
+
+[![PDFtalkTesting](https://github.com/PortingPDFtalk/SqueakPDFtalk/actions/workflows/PDftalkTesting.Squeak.yml/badge.svg)](https://github.com/PortingPDFtalk/SqueakValues/actions/workflows/PDftalkTesting.Squeak.yml) (Squeak 5.3 and Squeak 6.0)
 
 FileOut of the **PDFtalk** project for **Squeak** (see [Squeak porting page](https://wiki.pdftalk.de/doku.php?id=squeakport) for details).
 

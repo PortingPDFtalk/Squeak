@@ -1,11 +1,11 @@
-name: ValuesTesting.Squeak
+name: PDFtalkTesting.Squeak
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'Values**.st' # Run whenever an *.st file changes, even nested ones
+      - 'PDFtalk**.st' # Run whenever an *.st file changes, even nested ones
   # schedule:
   #   - cron: '0 0 * * *' # Test once a day
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
         # continue-on-error: true # upload image and results for inspection
         shell: bash
         # run: smalltalkci --smalltalk ${{ matrix.smalltalk }} --image ${{ env.IMAGE_FILEPATH }} --vm ${{ env.VM_FILEPATH }} ValuesTesting.Squeak.ston
-        run: smalltalkci --smalltalk ${{ matrix.smalltalk.stci }} ValuesTesting.${{ matrix.smalltalk.file }}.ston
+        run: smalltalkci --smalltalk ${{ matrix.smalltalk.stci }} PDFtalkTesting.${{ matrix.smalltalk.file }}.ston
         timeout-minutes: 5
 
       # - name: Upload Artifacts
@@ -58,7 +58,7 @@ jobs:
       #       !.smalltalkCI/_builds/.*
           # ${{ env.SMALLTALK_CI_BUILD }}/* absolute path does not work on Windows
 
-      - run: mv ~/.smalltalkCI/_builds/SqueakValues.xml ~/.smalltalkCI/_builds/SqueakValues-${{ matrix.os.family }}.xml
+      - run: mv ~/.smalltalkCI/_builds/SqueakValues.xml ~/.smalltalkCI/_builds/PDFtalkTesting-${{ matrix.os.family }}.xml
         shell: bash
 
       - name: Update XML log in latest-test-results
@@ -67,7 +67,7 @@ jobs:
           prerelease: true
           allowUpdates: true
           replacesArtifacts: true
-          artifacts: ~/.smalltalkCI/_builds/SqueakValues-${{ matrix.os.family }}.xml
+          artifacts: ~/.smalltalkCI/_builds/PDFtalkTesting-${{ matrix.os.family }}.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 'latest-test-builds'
 

@@ -1,0 +1,10 @@
+SmalltalkCISpec {
+  #name : 'PDFtalk',
+  #loading : [],
+  #postLoading : [
+  	'PDFtalk.Squeak53.st'
+  ],
+  #testing : {
+    #categories : [ 'PDFtalk*' ]
+  }
+}
